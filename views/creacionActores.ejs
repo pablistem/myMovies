@@ -1,0 +1,28 @@
+<%- include('header') -%>
+    <h1>Crear actor</h1>
+    <form action="/actors/create" method="POST">
+        <div>
+            <label for="">Nombre</label>
+            <input type="text" name="nombre">
+        </div>
+        <div>
+            <label for="">Apellido</label>
+            <input type="text" name="apellido">
+        </div>
+        <div>
+            <label for="">Rating</label>
+            <input type="text" name="rating">
+        </div>
+        <div>
+            <label for="">Película Favorita</label>
+            <select name="pelicula_favorita" id="">
+                <% for (let i = 0; i < movies.length; i++) { %>
+                    <option value="<%= movies[i].id %>">
+                        <%= movies[i].title %>
+                    </option>
+                <% } %>
+            </select>
+        </div>
+        <button type="submit">Crear!</button>
+    </form>
+<%- include('footer') -%>

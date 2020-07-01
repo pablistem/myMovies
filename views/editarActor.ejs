@@ -1,0 +1,34 @@
+<%- include('header') -%>
+    <h1>Editar actor</h1>
+    <form action="/actors/edit/<%= actor.id %>?_method=PUT" method="POST">
+        <div>
+            <label for="">Nombre</label>
+            <input type="text" name="nombre" value="<%= actor.first_name %>">
+        </div>
+        <div>
+            <label for="">Apellido</label>
+            <input type="text" name="apellido" value="<%= actor.last_name %>">
+        </div>
+        <div>
+            <label for="">Rating</label>
+            <input type="text" name="rating" value="<%= actor.rating %>">
+        </div>
+        <div>
+            <label for="">Película Favorita</label>
+            <select name="pelicula_favorita" id="">
+                <% for (let i = 0; i < movies.length; i++) { %>
+                    <% if (movies[i].id == actor.movie_id) { %>
+                        <option value="<%= movies[i].id %>" selected>
+                            <%= movies[i].title %>
+                        </option>
+                    <% } else { %>
+                        <option value="<%= movies[i].id %>">
+                            <%= movies[i].title %>
+                        </option>
+                    <% } %>
+                <% } %>
+            </select>
+        </div>
+        <button type="submit">Guardar!</button>
+    </form>
+<%- include('footer') -%>

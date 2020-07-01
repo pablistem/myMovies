@@ -1,0 +1,26 @@
+<%- include('header') -%>
+    <h1><%= actor.first_name %> <%= actor.last_name %></h1>
+    <ul>
+        <li>
+            Rating: <%= actor.rating %>
+        </li>
+        <li>
+            Películas
+            <ul>
+                <% for (let i = 0; i < actor.movies.length; i++) { %>
+                    <li>
+                        <a href="/movies/detail/<%= actor.movies[i].id %>">
+                            <%= actor.movies[i].title %>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </li>
+    </ul>
+    <a href="/actors/edit/<%= actor.id %>">
+        <button>Modificar</button>
+    </a>
+    <form action="/actors/delete/<%= actor.id %>?_method=DELETE" method="post" style="display: inline-flex">
+        <button>Borrar</button>
+    </form>
+<%- include('footer') -%>

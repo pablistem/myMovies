@@ -1,0 +1,27 @@
+<%- include('header') -%>
+    <h1><%= genre.name %></h1>
+    <ul>
+        <!-- <li>
+            Ranking: <%#= genre.ranking %>
+        </li>
+        <li> -->
+        <li>
+            Películas
+            <ul>
+                <% for (let i = 0; i < genre.movies.length; i++) { %>
+                    <li>
+                        <a href="/movies/detail/<%= genre.movies[i].id %>">
+                            <%= genre.movies[i].title %>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </li>
+    </ul>
+    <a href="/movies/edit/<%#= movie.id %>">
+        <button>Modificar</button>
+    </a>
+    <a href="/movies/edit/<%#= movie.id %>">
+        <button>Borrar</button>
+    </a>
+<%- include('footer') -%>
